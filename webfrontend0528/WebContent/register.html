@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+	<h3 align="center">회원가입</h3>
+	<form id="registerform" action="server.jsp" method="post">
+		<table align="center" cellpadding="10" width="900">
+			<tr>
+				<td rowspan="8" width="150">이미지<br/>
+				<img id="img" width="100" height="100" border="1" />
+				<input type="file" name= "file" accept=".jpg,.gif,.png,.jpeg" /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="email">이메일</label></td>
+				<td><input type="text" id="email" name="email" size="40" placeholder = "이메일을 입력해주세요"/></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="password">비밀번호</label></td>
+				<td><input type="password" id="password" name="password" size="15" maxlength="6" /><div id="msg"></div></td>
+			
+			</tr>
+			<tr>
+				<td align="right"><label for="password">비밀번호확인</label></td>
+				<!-- 서버에게 전송하지 않으므로 name이 필요없음 -->
+				<td><input type="password" id="password" size="15" maxlength="6" /></td>
+			</tr>
+			<tr>
+				<td align="right"><label for="">성별</label></td>
+				<td><input type="radio" value="man" name="gender" checked="checked" />남자
+					<input type="radio" value="woman" name="gender" />여자
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2">
+				<fieldset align= "center">
+					<legend>취미</legend>
+					<input type="checkbox" name="hobby" value="sports" />운동
+					<input type="checkbox" name="hobby" value="game" />게임
+					<input type="checkbox" name="hobby" value="readbook" />독서
+					<input type="checkbox" name="hobby" value="study" />공부
+				</fieldset>
+			</tr>
+			
+			<tr>
+				<td align="right"><label for="">지역</label></td>
+				<td>
+				<!-- <select name="born" size= "1"multiple="multiple" > -->
+				<!-- 이렇게도 사용할 수 있다. -->
+				<select name="born" >
+				<option value="s">서울</option>
+				<option value="k">경기도</option>
+				<option value="g">강원도</option>
+				<option value="c">충청도</option>
+				<option value="j">전라도</option>
+				<option value="g">경상도</option>
+				<option value="j">제주도</option>
+				</select>
+				</td>
+			</tr>
+			<tr>
+			<td>하고싶은 얘기</td>
+				<td>
+			<!-- </textarea>가 줄바꿈으로 넣으면 텍스트표시포인트가 가운데로 간다. -->
+			<!-- 그래서 같은줄에 써 주는것이 좋다. -->
+			<!-- <textarea rows="10" cols="30"> 줄바꿈을 하면 이 사이의 빈 공백만큼이 입력되게 된다.</textarea> -->
+				<textarea rows="10" cols="30"></textarea>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="3" align="center">
+				<input type="submit" value="회원가입" />
+				<input type="reset" value="작성취소" />
+				</td>
+			</tr>
+			
+	</table>
+	</form>
+	
+	<script>
+	document.getElementById("registerform").addEventListener("submit", function(){
+	var pw = document.getElementById("password").value;
+	var pw1 = document.getElementById("password1").value;	
+		if(pw != pw1){
+			alert("2개의 비밀번호는 같아야 합니다.");
+			return false;
+		}
+
+	})
+	
+	</script>
+	
+	
+	
+</body>
+</html>
