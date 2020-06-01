@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스타일 시트 적용 연습</title>
+<!-- 외부 스타일시트 링크 -->
+<link rel="stylesheet" href="css/ext1.css">
+<!-- 외부 스타일시트 포함 -->
+<style type="text/css">
+	@import url("css/ext2.css");
+</style>
+
+<!-- 내부 - Internal Style Sheet -->
+<style>
+	h6{
+		color:yellow;
+	}
+</style>
+
+
+</head>
+<body>
+	<h3>외부 스타일시트 링크</h3>
+	<h5>외부 스타일시트 포함</h5>
+	<h6>내부 스타일시트</h6>
+	<!--  Inline Style Sheet -->
+	<p style = "color:green;">인라인 스타일시트</p>
+</body>
+</html>

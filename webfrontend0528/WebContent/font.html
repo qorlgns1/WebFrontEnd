@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>타이포그라피</title>
+
+<style>
+
+	#typo{
+		/*기본 적인 글자 모양 적용 */
+		font:bold italic small-caps 
+		24px /1.6 "돋움"
+	}
+	#textlink{
+		text-decoration:none;
+	}
+	
+	#textlink:visited{
+		color:#000000;
+	}
+	
+	#textlink:hover{
+		color:#ff0000;
+	}
+	img:hover{
+		border:1px dotted #ff0000;
+		border-radius:10px
+	}
+</style>
+</head>
+<body>
+	<p id="typo">text</p>
+	
+	<input type="button" value="클릭" /><br/>
+	<a id = "textlink" href="">클릭</a><br/>
+	<a href=""><img width="50" height="50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcFCNrdkTEWvM9Q0_3ozP7FtNaxaaAzUZhNErR71biMGeu0lde&usqp=CAU" /></a><br/>
+</body>
+</html>

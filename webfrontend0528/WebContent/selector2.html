@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>선택자 조합</title>
+<style>
+	/* div 안에 있는 p태그 */
+	div p{
+		color:red;
+	}
+	
+	/* 2개의 선택자에게 동일한 스타일 적용  */
+	h1,h2{
+		color:papayawhip;
+	}
+	
+	/* id가 특정도가 가장높고 그다음 class, 그리고 태그 순서이다.*/
+	span{
+		color:green;
+	}
+	.cl{
+		color:purple;
+	}
+	#spanid{
+		color:red;
+	}
+</style>
+
+</head>
+<body>
+	<p>선택자 조합</p>
+	<div class= "container">
+	 	<p>div 안에 있는 p</p>
+	 	<h1>큰 제목</h1>
+	 	<h2>작은 제목</h2>
+	</div>
+	
+	<span>인라인 영역을 만들어주는 태그</span>
+	<span class="cl">인라인 영역을 만들어주는 태그</span>
+	<span class="cl" id="spanid">인라인 영역을 만들어주는 태그</span>
+	
+	<script>
+		document.getElementById("spanid")
+		.innerHTML = "인라인 영역을 만들어주는 태그문장을 자바스크립트문장으로 변경";
+	</script>
+</body>
+</html>

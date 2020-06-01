@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>텍스트 그림자</title>
+<style>
+	/*text-shadow 에서 수직오프셋과 수평오프셋에 크기를 작게하면 굵어보이게 표현된다.*/
+	#shadow1{
+		font-size:100px;
+		color:#135;
+		text-shadow : 50px 30px red, 100px 60px blue, 150px 90px pink;
+	}
+	/*text-shadow 에서 앞의 쉐도우가 밝고 뒤에 쉐도우를 어둡게하면 튀어나와보이는 효과가 있다.
+	             반대로 앞의 쉐도우가 어둡고 뒤에 쉐도우가 밝으면 들어가보이는 효과가 있다.*/
+	#shadow2{
+		font-size:100px;
+		color:#ba9eba;
+		text-shadow : -.5em -.5em .05em white, .03em .03em .05em purple;
+	}
+</style>
+	
+
+</head>
+<body>
+	<h1 id = "shadow1">입체감</h1>
+	<h1 id = "shadow2">튀어나오기</h1>
+</body>
+</html>
