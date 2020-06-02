@@ -1,0 +1,36 @@
+#box1{
+	border:100px inset blue;
+	width:100px;
+	height:100px;
+	padding:10px;
+	margin:50px;
+	background-color:papayawhip;
+}
+#box1:hover{
+	border:10px inset red;
+}
+#box1:active{
+		border:10px inset green;
+}
+#box2{
+	width:100px;
+	height:100px;
+	border-style:solid;
+	border-width:1px;
+	border-left-color:red;
+	border-right-color:blue;
+	border-top-color:red;
+	border-bottom-color:blue;
+}
+
+#box2:active{
+	width:100px;
+	height:100px;
+	border-style:solid;
+	border-width:1px;
+	border-left-color:blue;
+	border-right-color:red;
+	border-top-color:blue;
+	border-bottom-color:red;
+}
+

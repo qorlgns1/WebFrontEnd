@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼 스타일링</title>
+<style>
+	
+	/* 목록 기호 삭제 */
+	ul{
+		list-style-type:none;
+	}
+	/*목록의 floating 해제 */
+	li{
+		clear:both;
+	}
+	
+	/* form */
+	form{
+		width:50em; /*50글자 정도 크기*/
+		border:1px solid #666666;
+		border-radius: 10px;
+		box-shadow: .2em .2em .5em #999;
+		background-color:#cddc39;
+		padding: 1em;
+		overflow:hidden;
+	}
+	
+	label{
+		display:block;
+		float:left;
+		width:10em;
+		text-align: right;
+		margin-right:.5em;
+		color:#04699d;
+	}
+	
+	/* 한 줄 글상자 스타일 수정*/
+	.textinput{
+		width:30em;
+		height:2em;
+		border:1px solid #666666;
+		margin-bottom:1em;
+	}
+	
+	/* 여러 줄 글 상자 스타일 설정*/
+	textarea{
+		display:block;
+		width:30em;
+		height:5em;
+		border:1px solid #666666;
+		margin-bottom:1em;
+		line-height:1.25;
+		overflow:auto;
+		/*resize:none;*/
+	}
+	#phonenumber1{
+	width:10em;
+	}
+	
+	/*입력 란의 글자 모양 설정 */
+	.textinput, textarea{
+		font-family:Georgia, Times, serif;
+		font-size:0.875em;
+	}
+	
+	
+	/*/*filedset 과 legend 설정*/
+	fieldset{
+		margin:0;
+		padding:0;
+		border:none;
+	}
+	legend{
+		display:block;
+		width:10em;
+		float:left;
+		margin-right:.5em;
+		text-align:right;
+		color:#04699d;
+	}
+	
+	/*라디오 버튼과 체크 박스 설정*/
+	#genders label, #message label{
+		color:#000000;
+		display:inline;
+		float:none;
+		text-align: inherit;
+		width:auto;
+		font-weight:normal;
+		background-color: inherit;
+	}
+	
+	/*genders 라는 id를 가진 ul 태그 안의 li 태그*/
+	/*li는 block인데 inline으로 변경해서 한 줄에 작성*/
+	#genders ul li, #message ul li{
+		display:inline;
+		margin-bottom:0;
+	}
+	
+	#genders, #message{
+	 	margin-top:1em;
+	}
+	
+	/* 속성 선택자를 이용해서 버튼의 스타일을 설정 */
+	input[type="button"]{
+		display:block;
+		width:10em;
+		height:2em;
+		float:right;
+		background:white;
+		font-size:inherit;
+		border:1px solid #04699d;
+		border-radius:4px;
+		border-shadow:2px 2px 3px rgba(0,0,0,.5)
+	}
+	input[type="submit"]
+	, input[type="reset"]{
+		display:inline;
+		width:10em;
+		height:2em;
+		background:white;
+		font-size:inherit;
+		border:1px solid #04699d;
+		border-radius:4px;
+		border-shadow:2px 2px 3px rgba(0,0,0,.5);
+		margin-top:1em;
+	}
+	
+	input[type="submit"]{
+		margin-left:10.5em;
+		maring-right:1em;
+		color:#cc0000;
+		font--weight:900;
+	}
+</style>
+</head>
+<body>
+	<form method= "post" action="server.jsp" id="registerform" enctype="multipart/form-data">
+		<h2 align ="center">회원가입</h2>
+		<ul>
+			<li><label for="email">이름</label>
+			<input type="text" id="name" name="name" class="textinput" placeholder="이름을 입력해 주세요" /></li>
+			<li><label for="email">이메일</label>
+			<input type="text" id="email" name="email" class="textinput" placeholder="EMAIL을 입력해 주세요" />
+			<input type="button" id="emailcheckbtn" value="이메일 중복확인" /></li>
+			<li><label for="userpw">비밀번호</label>
+			<input type="password" id="userpw" name="userpw" class="textinput" placeholder="PASSWORD을 입력해 주세요" /></li>
+			<li><label for="email">비밀번호 확인 </label>
+			<input type="password" id="password" class="textinput" placeholder="PASSWORD을 입력해 주세요" /></li>
+			
+			<!-- 여러 줄 글상자 -->
+			<li><label for="address">주소</label>
+			<textarea id="address" class="textinput" cols="100" rows="1.5"></textarea></li>
+			
+			<!-- 필수 선택 -->
+			<!-- 항목이 여러 개 일 때는 select -->
+			<!-- 항목의 개수가 적을 때는 radio -->
+			<li><label for="phonenumber">핸드폰번호</label>
+			<select id="phonenumber" class="phonenumber">
+			<option value="-" selected= "selected">선택해 주세요</option>
+			<option value="010">010</option>
+			<option value="011">011</option>
+			<option value="019">019</option>
+			</select>
+			<input type="text" id="phonenumber1" name="phonenumber" class="textinput" />
+			-
+			<input type="text" id="phonenumber1" name="phonenumber" class="textinput" />
+			<input type="button" id="phonenumbercheckbtn" value="핸드폰번호 중복확인" />
+			</li>
+			
+			<li><label for="DOB">생년 월일</label>
+			<select id="phonenumber" class="phonenumber">
+			<option value="-" selected= "selected">선택해 주세요</option>
+			<option value="1993">1993</option>
+			<option value="1994">1994</option>
+			<option value="1995">1995</option>
+			<option value="1996">1996</option>
+			<option value="1997">1997</option>
+			<option value="1998">1998</option>
+			<option value="1999">1999</option>
+			
+			</select>
+			<select id="phonenumber" class="phonenumber">
+			<option value="-" selected= "selected">선택해 주세요</option>
+			<option value="010">010</option>
+			<option value="011">011</option>
+			<option value="019">019</option>
+			</select>
+			<select id="phonenumber" class="phonenumber">
+			<option value="-" selected= "selected">선택해 주세요</option>
+			<option value="010">010</option>
+			<option value="011">011</option>
+			<option value="019">019</option>
+			</select>
+			</li>
+			<li>
+			<fieldset id="genders">
+				<legend>성별</legend>
+				<ul>
+					<li><label for="man">
+					<input type="radio" name="gender" value="man" checked="checked" />남자</label>
+					<label for="woman">
+					<input type="radio" name="gender" value="woman" checked="checked" />여자</label></li>
+				</ul>
+			</fieldset>
+			</li>
+			
+			<!-- 다중 선택: checkbox 나 select를 사용할 때는 multiple 속성 설정
+			checkbox는 필수 선택은 아님 -->
+			
+			<li>
+			<fieldset id="message">
+				<legend>메시지 수신 설정</legend>
+				<ul>
+					<li>
+					<label>
+					<input type="checkbox" name="accept" id="acceptemail" value="acceptemail"/>
+					메일 수신 허용
+					</label>
+					<label>
+					<input type="checkbox" name="accept" id="acceptsms" value="acceptsms"/>
+					SMS 수신 허용
+					</label>
+					</li>
+				</ul>
+			</fieldset>
+			</li>
+			
+			<!-- 서버 전송과 작성 취소 버튼 -->
+			<li class="buttons">
+				<input type="submit" value="회원가입" />
+				<input type="reset" value="작성취소" />
+			</li>	
+		</ul>
+	</form>
+</body>
+</html>
