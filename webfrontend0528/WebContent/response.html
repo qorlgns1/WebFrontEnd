@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반응형 웹 디자인</title>
+<!-- 페이지의 크기를 항상 디바이스 크기에 맞춰줍니다. -->
+<!-- initial-scale은 처음 페이지가 보여지는 배율 -->
+<!-- maximum-scale=1.0 확대할 때 최대 배율 -->
+<!-- user-scalable은 유저가 확대 축소를 할 수 있게 할것인지의 여부 --> 
+<!-- chrome에서는 옵션을 개발자가 설정하는 것을 하지않도록 권장합니다. -->
+<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0 user-scalable=no" />
+<style>
+	/*img{
+		width:512px;
+		height:512px;
+	}*/
+		/*유동형 레이아웃으로 설정*/
+	/*img{
+		width:50%;
+		height:50%;
+	}*/
+	img{
+		width:48%;
+	}
+	/*보통의 경우 적용되는 디자인 */
+	body{
+		background-color:papayawhip;
+	}
+	
+	/*컴퓨터나 스마트 폰에서 접속할 때 브라우저의 너비가 960px 까지 적용*/
+	
+	@media screen and (max-width:960px){
+	body{
+		background-color:yellow;
+	}
+	img{
+		width:96%;
+	}
+}
+</style>
+</head>
+<body>
+	<img src="images/image1.png"  />
+	<img src="images/image2.png"  />
+</body>
+</html>

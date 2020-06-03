@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제어문</title>
+
+<script>
+	var score = 87;
+	//score 가 60이상이면 합격 아니면 불합격
+	//document.write("합격<br/>")
+	
+	if(score>=60){
+		document.write("합격<br/>")
+	}else{
+		document.write("불합격<br/>")
+	}
+	//100점 만점중
+	//score가  80 이상이면 우수
+	//score가  80보다는 적고 60 이상이면 보통
+	//score 가 60미만이면 부진이라고 출력
+	
+	if(score>=80 && score<=100){
+		document.write("우수<br/>")
+	}else if(score<80 && score>=60){
+		document.write("보통<br/>")
+	}else if(score<60 && score>=0){
+		document.write("부진<br/>")
+	}else{
+		document.write("입력한 스코어 값이 잘못되었습니다.<br/>")
+	}
+	
+	var menu = 4;
+	 //menu의 값이 1이면 해장국
+	 //menu의 값이 2이면 육개장
+	 //menu의 값이 3이면 냉모밀
+	 //menu의 값이 4이면 짜장면
+	 ///나머지는 설렁탕
+	 
+	 //break를 사용하지않으면 그 밑에있는것들이 전부 출력이 된다.
+	 
+	 var CHINA = 4;
+	 
+	 switch (menu) {
+	case 1:
+		document.write("해장국<br/>")
+		break;
+	case 2:
+		document.write("육개장<br/>")
+		break;
+	case 3:
+		document.write("냉모밀<br/>")
+		break;
+	case CHINA:
+		document.write("짜장면<br/>")
+		break;	
+	default:
+		document.write("설렁탕<br/>")
+		break;
+	}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
