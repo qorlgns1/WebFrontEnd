@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문자열</title>
+<script>
+      var temp = "     Hello Trim    ";
+      //length 가 문자열의 길이를 저장하고 있는 속성
+      //charAt(인덱스) 인덱스 번째 문자를 리턴
+
+      result = "";
+      //각 문자를 순회
+      for (var i = 0; i < temp.length; i++) {
+		if(temp.charAt(i)===" "){
+			continue;
+		}else{
+			result = result+temp.charAt(i)
+		}
+	}
+      document.write(result);
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
