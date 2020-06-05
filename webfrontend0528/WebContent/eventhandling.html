@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 핸들링</title>
+</head>
+<body>
+
+	<p>
+		<input type="button" value="인라인" onclick="document.getElementById('msg1').innerHTML ='클릭'" /><span id="msg1"></span>
+	</p>
+	<p>
+		<input type="button" value="고전적" id="custom" /><span id="msg2"></span>
+	</p>
+	<p>
+		<input type="button" value="표준" id="standard" /><span id="msg3"></span>
+	</p>
+	
+	<form action = "server.jsp" id="myform">
+		비밀번호<input type="password" id="pw"/><br/>
+		비밀번호확인<input type="password" id="pwcheck"/><span id="msg"></span><br/>
+		<input type="submit" value="확인" />
+	</form>
+	
+	<script>
+		//고전적 이벤트 모델
+		document.getElementById("custom").onclick = function(event){
+			document.getElementById("msg2").innerHTML= "고전적 이벤트 모델"
+		};
+		
+		//표준 이벤트 모델
+		document.getElementById("standard").addEventListener("click",function(event){
+			document.getElementById("msg3").innerHTML = "표준 이벤트 모델";
+			document.getElementById("msg3").style.color = "red";
+			//this를 이용해서 이벤트가 발생한 객체의 속성을 수정
+			this.style.background="orange";
+			this.value="클릭";
+			document.body.style.backgroundColor = "red";
+		});
+		
+		//form 안에서 submit 버튼을 누를 때
+		document.getElementById("myform").addEventListener("submit", function(event){
+			//pw에 입력한 값과 pwcheck에 입력한 값 가져오기
+			var pwvalue = document.getElementById("pw").value;
+			var pwcheckvalue = document.getElementById("pwcheck").value;
+			if(pwvalue!=pwcheckvalue){
+				document.getElementById("msg").innerHTML = "2개의 비밀번호가 일치하지 않음";
+				document.getElementById("msg").style.color="red";
+				event.preventDefault();	
+			}
+			
+		})
+	</script>
+</body>
+</html>

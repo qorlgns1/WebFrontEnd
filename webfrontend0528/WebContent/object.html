@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 제공 객체</title>
+<script>
+	//1993 년6월 10일 오후 2시를 저장하는 객체를 생성
+	//Java 와 JavaScript 는 월은 0부터 시작
+
+	var month = [0,0,1,2,3,4,5,6,7,8,9,10,11,12]
+	var birthday = new Date(1993, month[6], 10, 14);
+	console.log(birthday);
+
+	//문자열 배열을 생성
+	var ar = [ "XHTML", "CSS", "JavaScript", "HTML5" ];
+	//만들어진 문자열을 순서대로 출력
+	for (arr in ar) {
+		console.log(ar[arr]);
+	}
+	
+	//데이터 정렬 - 오름차순 정렬
+	ar.sort()
+	console.log(ar);
+	//내림차순 정렬
+	ar.sort(function(left, right){
+		if(left > right){
+			return -1
+		}else{
+			return 1;
+		}
+		
+	})
+	console.log(ar);
+	
+	var xr = [300, 20, 350 , 189];
+	xr.sort(function(a,b){
+		return a-b;
+	});
+	console.log(xr);
+	
+	//객체 배열
+
+	//1.생성자 - 동일한 모양의 객체를 여러개 만들것이고
+	//초기화를 편리하게 하기 위해서
+
+	function study(name, period) {
+		this.name = name;
+		this.period = period;
+
+	}
+	//study에 기존의 toString 메소드를 다시 생성
+	//자바스크립트에서는 오버라이딩을 할 때
+	//생성자.prototype.메소드이름 = 함수
+	//형태로 합니다.
+	study.prototype.toString = function() {
+		return this.name + ":" + this.period;
+	}
+
+	var study1 = new study("Java", 25);
+	var study2 = new study("Database", 10);
+	var study3 = new study("WebFrontEnd", 10);
+	var study4 = new study("ServerProgramming", 20);
+	var study5 = new study("Android", 20);
+	var study6 = new study("iOS", 25);
+	var study7 = new study("etc", 3);
+
+	var programming = [ study1, study2, study3, study4, study5, study6, study7 ];
+
+	document.write(programming);
+	
+	document.write("<br/>");
+	
+	//period의 오름차순 정렬
+	programming.sort(function(a,b){
+		return a.period - b.period;
+	});
+	document.write(programming);
+	document.write("<br/>");
+	
+	//name의 내림차순 정렬
+	programming.sort(function(a,b){
+		if(a.name > b.name){
+			return -1
+		}else{
+			return 1;
+		}
+	});
+	console.log(programming);
+	document.write(programming);
+	
+	document.write("<br/>");
+	var temp = [29, 30, 12, 34, 27];
+	//원래 배열의 데이터에 1을 더하는 작업
+	var result = temp.map(function(e,idx,ar){
+		return e+1 ;
+	});
+	document.write(result);
+	document.write("<br/>");
+	
+	//30이 넘는 데이터만 추출
+	result1 = result.filter(function(e,idx,ar){
+		return e>30;
+	});
+	document.write(result1);
+	document.write("<br/>");
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

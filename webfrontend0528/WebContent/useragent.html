@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>userAgent- 이 속성으로 모바일 웹 페이지로 보내기</title>
+<script>
+	//userAgent 값 저장
+	var userAgent = navigator.userAgent;
+
+	//userAgent 에 iPhone, iPod, Android라는
+	//문자열이 포함되어 있는지 확인
+	
+	//스마트폰 운영체제 배열을 생성
+	//모두 소문자로 생성 - 검색을 편리하게 하기 위해서
+	var os = ["iphone", "ipod", "android"];
+	
+	//검색을 위해서 userAgent도 모두 소문자로 변경
+	userAgent = userAgent.toLowerCase();
+	//스마트폰 운영체제인지 확인하기 위한 변수
+	var flag = false;
+	
+	//배열을 순회하면서 배열의 내용이 userAgent에 존재하는지 확인
+	for(idx in os){
+		//indexOf: 문자열이 있으면 그 위치를
+		//없으면 음수를 리턴
+		if(userAgent.indexOf(os[idx]) >= 0 ){
+			flag = true;
+			break;
+		}
+		
+	}
+	
+	if(flag == true){
+		location.href = "https://www.naver.com";
+		
+	}else{
+		location.href = "https://www.google.com";
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

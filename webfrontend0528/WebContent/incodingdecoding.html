@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인코딩,디코딩</title>
+<script>
+	var url = "http://www.myhome.com/index.html?name=군계";
+	//인코딩
+	var result = escape(url);
+	document.write(result);
+	
+	document.write("<br/>");
+	
+	var url = "http://www.myhome.com/index.html?name=군계";
+	//인코딩
+	var result = encodeURI(url);
+	document.write(result);
+	
+	document.write("<br/>");	
+	
+	var url = "http://www.myhome.com/index.html?name=군계";
+	//인코딩
+	var result = ﻿encodeURIComponent(url);
+	document.write(result);
+	
+	
+	//------------------------------------------------------------
+	document.write("<br/>");
+	
+	
+	var url = "http%3A//www.myhome.com/index.html%3Fname%3D%uAD70%uACC4";
+	//디코딩
+	var result = unescape(url);
+	document.write(result);
+	
+	document.write("<br/>");
+	
+	var url = "http://www.myhome.com/index.html?name=%EA%B5%B0%EA%B3%84";
+	//디코딩
+	var result = ﻿decodeURI(url);
+	document.write(result);
+	
+	document.write("<br/>");	
+	
+	var url = "http%3A%2F%2Fwww.myhome.com%2Findex.html%3Fname%3D%EA%B5%B0%EA%B3%84";
+	//디코딩
+	var result = ﻿﻿decodeURIComponent(url);
+	document.write(result);
+</script>
+</head>
+<body>
+
+</body>
+</html>

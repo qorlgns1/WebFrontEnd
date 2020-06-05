@@ -1,0 +1,23 @@
+div{
+	text-align:center;
+}
+
+span{
+	/* 크기 설정을 하기 위해서 block으로 만들고 left에 배치*/
+	inline:block;
+	float:left;
+	width:30%;
+	border:1px solid black;
+	text-align : center;
+	font:1.5em serif;
+}
+
+.titlespan{
+	margin-top : 1em;
+}
+
+.valuespan{
+	height:5em;
+	font:2em serif;
+	line-height: 5em;
+}

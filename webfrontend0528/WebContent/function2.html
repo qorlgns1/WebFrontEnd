@@ -8,7 +8,7 @@
 	function outer(){
 		//함수 안에서 만들어진 변수는 지역변수
 		//지역변수는 자신의 블록 내부에서만 사용이 가능
-		var n=1;
+		var n=100;
 		document.write("<h2>n : "+n+"</h2>")
 	}
 	outer();
@@ -21,23 +21,27 @@
 		var n = 1;
 		//내부 함수를 만들어서 리턴
 		//내부 함수는 외부 함수의 데이터를 전부 사용 가능
-		return function(){
+		return function(num){
+			n = n + num;
 			document.write("<h2>클로저 n: "+ n +"</h2>");
-			n = n + 1;
+			
 		}
 	}
 	
 	//외부함수를 호출해서 변수에 결과를 저장
 	var r = closure();
 	
-	r();
-	r();
-	r();
-	r();
-	r();
-	r();
+	r(5);
+	r(3);
+	r(-9);
+	r(-10.7);
+	r(2);
+	r(5);
 	
-
+	var friends = ["Mike", "Stacy", "Andy", "Rick"];
+	friends.forEach(function (eachName, index){
+		document.write(index + 1 + ". " + eachName);
+	 });
 </script>
 </head>
 <body>
