@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 미리보기</title>
+<script>
+	//window에 load 이벤트가 발생 한 후
+	//body에 있는 내용을 전부 읽어서 메모리에 로드하고 난 후
+	//
+	window.addEventListener("load", function(event){
+	
+	//file의 선택이 변경되면 함수를 호출
+	var imginp= document.getElementById("imginp");
+	//값이 변경되면 함수를 호출
+	imginp.addEventListener("change",function(event){
+			//함수 호출 - this는 imginp
+			readURL(this);
+			
+		});
+		//스크롤이 가능하도록 태그 추가
+		for(var i=0;i<20;i=i+1){
+			document.getElementById("body").innerHTML += "<h1>Infinity Scroll</h1>"
+		}
+		//스크롤 이벤트가 발생한 경우 처리
+		window.addEventListener("scroll",function(event){
+			//스크롤 상단의 좌표 찾아오기
+			var supportPageOffset = window.pageXOffset !== undefined;
+			var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+			var scrollTop = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+	 		//스크롤 하단의 좌표를 찾아오기
+			var scrollHeight = scrollTop + window.innerHeight;
+	 		//문서의 하단 좌표 찾아오기
+			var documentHeight = document.body.clientHeight;
+			//alert(scrollHeight)
+			//alert(documentHeight)
+			// 스크롤의 높이와 문서의 높이가 같을 때
+			if (scrollHeight >= documentHeight) {
+				for (var i = 0; i < 50; i++) {
+					document.getElementById('body').innerHTML += '<h1>Infinity Scroll</h1>';
+				}
+			}
+
+		});
+	});
+	//이벤트 처리 함수
+	var readURL = function(input){
+		//선택한 파일이 있는지 확인
+		if(input.files && input.files[0]){
+			//선택한 파일 이름을 가져오기
+			var filename = input.files[0].name;
+			//파일 읽기 객체를 생성
+			var reader = new FileReader();
+			//파일 읽기 - 비동기적으로 읽음
+			//바로 뒤에 코드를 작성하면 파일을 읽기 전에 수행
+			reader.readAsDataURL(input.files[0]);
+			//이벤트 처리 함수를 작성 - 콜백 함수
+			reader.addEventListener("load", function(e){
+				document.getElementById("img").src = e.target.result;
+			});
+		}
+		
+	}
+</script>
+</head>
+<body id = 'body'>
+	<h2>이미지 미리보기</h2>
+	<form id="form1">
+		<!-- image 파일만 선택할 수 있도록 생성 -->
+		<input type="file" id="imginp"
+		accept=".jpg, .jpeg, .gif, .png" />
+		<img id="img" width="200"
+		height="200" border="1" />
+	</form>
+</body>
+</html>
