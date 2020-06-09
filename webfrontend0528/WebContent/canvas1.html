@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>canvas1</title>
+</head>
+<body>
+	<canvas id="canvas" width= "1024" height="1024"></canvas>
+</body>
+	<script>
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext('2d');
+		context.fillStyle = 'red';
+		context.strokeStyle = 'blue';
+		﻿context.globalAlpha = 0.3;
+		context.fillRect(0,0,200,300);
+		context.strokeRect(180,180,200,300);
+		context.clearRect(0,0,100,200);
+
+
+	</script>
+</html>

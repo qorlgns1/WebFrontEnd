@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>canvas2</title>
+<style>
+	#canvas{
+		border:3px solid black;
+	}
+</style>
+
+<script>
+	//body의 내용을 모두 읽어서 메모리에 로드하고 난 후에
+	window.addEventListener("load", function(event){
+		//canvas를 찾아오기
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		
+		//선두께는 lineWidth 속성
+		//선색상은 strokeStyle 속성
+		context.lineWidth = 12;
+		context.strokeStyle = "rgb(255,255,0)"
+		
+		//경로 그리기
+		//beginPath() 와 closePath()를 호출하고
+		//그 사이에 moveTo(x,y), lineTo(x,y)로 선그리고
+		//bezierCurveTo() 나 quardraticCurveTo()로 곡선을 그릴 수 있고
+		//rect()로 사각형을 그릴 수 있고
+		//arc()로 원을 그릴 수 있습니다.
+		context.beginPath();
+		context.moveTo(255,255);
+		context.lineTo(255,400);
+		context.moveTo(400,400);
+		context.lineTo(-2300,300);
+		context.closePath();
+		
+		//stroke()는 경로를 선으로 연결
+		//fill()은 내부를 채움
+		context.stroke();
+	})
+</script>
+</head>
+<body>
+	<canvas id="canvas" width="512" height="512"></canvas>
+</body>
+
+
+</html>

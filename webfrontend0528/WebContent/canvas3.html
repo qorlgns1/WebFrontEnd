@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 비동기처리와 스프라이트</title>
+</head>
+<body>
+	<img src = "resource/svgtest.svg"/>
+	<canvas id="canvas" width="1024" height="1024"></canvas>
+</body>
+<script>
+	var canvas = 
+		document.getElementById("canvas");
+	var context = 
+		canvas.getContext("2d");
+	
+	//이미지 객체를 생성하고 소스를 설정
+	var image = new Image();
+	image.src = "images/img.jpg";
+	
+	//이미지 출력
+	//이미지가 전부 로드되고 나면 출력
+	image.addEventListener(
+			"load", function(event){
+		//context.drawImage(image, 0, 0);
+		
+		//2초마다 image.png의 내용을 9등분해서 순서대로 출력
+		//image.png는 400*400
+		//133*133이 하나의 조각
+		var i=0;
+		setInterval(function(){
+			i = i%9;
+			//앞의 4개는 자르는 위치와 크기
+			//뒤의 4개는 출력할 위치와 크기
+			context.drawImage(image, 133 * Math.floor(i/3),133 * Math.floor(i%3), 133, 133, 100,100,133,133);
+			i = i+1
+		},2000);
+	});
+	
+
+		
+</script>
+</html>

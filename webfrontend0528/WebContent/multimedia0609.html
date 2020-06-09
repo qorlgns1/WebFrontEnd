@@ -12,5 +12,25 @@
 		<!-- <source src="resource/IPhone3G.mov" />
 		<source src="resource/Painting.mp4" />  -->
 	</video>
+	
+	<video id="video" src="resource/Painting.mp4" width="320" height="320"></video>
+	<input id="btn" type="button" value="버튼" />
 </body>
+<script>
+	var video = document.getElementById("video");
+	var btn = document.getElementById("btn");
+	
+	//btn의 클릭 이벤트 처리
+	btn.addEventListener("click", function(){
+		//재생 중 인지 확인
+		if(!video.paused && !video.ended){
+			video.pause();
+			btn.value="재생";
+		}else{
+			video.play();
+			btn.value="중지";
+		}
+	});
+	
+</script>
 </html>
