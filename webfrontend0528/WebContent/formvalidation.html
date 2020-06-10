@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼의 유효성 검사</title>
+</head>
+<body>
+	<form action="server.jsp" method = "post" id="myform">
+		<!-- requird: 필수 입력 -->
+		이메일<input type = "email" id="email" name="email" required/>
+		<!-- email 유효성 검사 메시지에 사용할 영역 -->
+		<span id="emailmsg"></span><br/>
+		<!-- maxlength : 최대 글자 수 제한 -->
+		비밀번호<input type = "password" id="userpw" name="userpw" maxlength="15" required />
+		<span id="userpwmsg"></span><br/>
+		별명<input type= "text" id="nickname" name="nickname" /><br/>
+		<input type = "submit" value="가입" />
+	
+		
+	
+	
+	</form>
+</body>
+<script>
+	var email = document.getElementById("email");
+	var emailmsg = document.getElementById("emailmsg");
+	var flag = true;
+	email.addEventListener("focusout", function(event){
+		//ajax를 이용해서 서버에 요청을 해야 함
+		if(email.value === 'rlgns1129@naver.com'){
+			emailmsg.innerHTML = "이미 사용중인 이메일";
+			emailmsg.style.color = 'red';
+			flag = false;
+		}else{
+			emailmsg.innerHTML = "사용 가능한 이메일";
+			emailmsg.style.color = 'green';
+			flag= true;
+		}
+	});
+	
+	var userpw = document.getElementById("userpw");
+	var userpwmsg = document.getElementById("userpwmsg");
+	
+	userpw.addEventListener("keydown", function(event){
+		//ajax를 이용해서 서버에 요청을 해야 함
+		if(userpw.value.length > 5){
+			userpwmsg.innerHTML = "보안 강함";
+			userpwmsg.style.color = 'green';
+			//flag = true;
+		}else{
+			userpwmsg.innerHTML = "보안 약함";
+			userpwmsg.style.color = 'red';
+			//flag = false;
+		}
+	});
+	
+	//폼 객체 찾아오기
+	var myform = document.getElementById("myform");
+	//폼 객체 전송할 때
+	myform.addEventListener("submit", function(event){
+		
+		if(flag==false){
+			event.preventDefault();
+		}
+		//폼의 데이터를 전송하지 않게 하는 방법은 event.preventDefault()
+		
+		//email이 형식에 맞지 않으면 전송을 하지 않도록(정규식을 이용)
+		
+		//이메일 정규식 만들기
+		var emailreg = ﻿/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		//정규식의 test 메소드에 문자열을 대입하면
+		//정규식이 존재하면 true 그렇지 않으면 false 리턴
+		if(emailreg.test(email.value.trim())== false) {            
+            emailmsg.innerHTML = "형식에 맞지 않음";
+            emailmsg.style.color = "red";
+            email.focus();
+            //전송하지 않음
+            event.preventDefault();
+
+		}
+		
+		
+	});
+	
+</script>
+</html>
