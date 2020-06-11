@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web push - SSE</title>
+</head>
+<body>
+	<h1>Web Push - SSE</h1>
+	<p>SSE는 서버가 클라이언트 요청이 없는데도 메시지를 전송하는 기술</p>
+	
+	<div id="disp"></div>
+</body>
+
+<script>
+	//푸시 객체 생성
+	var eventSource = 
+		new EventSource('resource/push.jsp');
+	//푸시가 왔을 때 수행할 내용
+	eventSource.addEventListener(
+			'message', function(event){
+		document.getElementById('disp').innerHTML += 
+			"<p>" + event.data + '</p>';
+	});
+</script>
+</html>

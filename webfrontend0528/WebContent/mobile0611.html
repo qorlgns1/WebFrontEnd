@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>모바일 이벤트</title>
+</head>
+<body>
+	<div id="disp"></div>
+</body>
+
+<script>
+	var disp = 
+		document.getElementById("disp");
+	//회전 이벤트는 window 객체의 orientationchange
+	window.addEventListener(
+		"orientationchange", function(event){
+			switch(window.orientation){
+			case -90:
+			case 90:
+				disp.innerHTML = 
+					'<h3>' + '가로' + '</h3>';
+				break;
+			default:
+				disp.innerHTML = 
+					'<h3>' + '세로' + '</h3>';
+				break;
+			}
+	});
+	
+	document.addEventListener(
+		'touchstart', function(event){
+		disp.innerHTML = "터치 시작";
+	});
+</script>
+
+</html>
+
+
+
+
+

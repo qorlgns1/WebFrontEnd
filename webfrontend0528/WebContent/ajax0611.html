@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax</title>
+</head>
+<body>
+	<h2>ajax 요청</h2>
+	<input type="button" value ="텍스트파일읽기" id="ajaxbtn" />
+	<form id="myform">
+		이메일<input type="email" name = "email" id="email"/><br/>
+		이름<input type="text" name = "name" id="name"/><br/>
+		<input type="button" value="폼 전송 ajax" id="ajaxformbtn"/>
+	</form>
+	
+	<div id="disp"></div>
+</body>
+
+<script>
+	//body에 있는 태그들을 찾아오기
+	var ajaxbtn = document.getElementById("ajaxbtn");
+	var disp = document.getElementById("disp");
+	var myform = document.getElementById("myform");
+	var ajaxformbtn = document.getElementById("ajaxformbtn");
+	
+	ajaxformbtn.addEventListener("click",function(event){
+		//폼의 데이터를 하나로 만들기
+		var formdata = new FormData(myform);
+		//폼에 있지 않은 데이터를 추가
+		formdata.append("age",28);
+		//요청을 생성
+		var request = new XMLHttpRequest();
+		request.open('POST', 'resource/process.jsp');
+		request.send(formdata);
+		//응답을 처리
+		request.addEventListener('load', function(event){
+			disp.innerHTML = 
+				event.target.responseText;		
+		});
+		
+		
+		
+		
+		﻿
+	});
+	
+		//버튼을 누를 때 동작
+		ajaxbtn.addEventListener("click",function(event){
+		//ajax 요청을 생성
+		var request = new XMLHttpRequest();
+		request.open('GET', 'resource/textfile.txt');
+		request.send();
+		//비동기여서 전송이 완료되었을 때 수행할 내용
+		request.addEventListener("load",function(event){
+			//disp에 가져온 내용 출력
+			//json 이나 xml이면 파싱을 수행
+			if(disp.innerHTML == ''){
+				disp.innerHTML = 
+					event.target.responseText;
+			}else{
+				disp.innerHTML = '';
+			}
+		})
+		
+	});
+</script>
+</html>

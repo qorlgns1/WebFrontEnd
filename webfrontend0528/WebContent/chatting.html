@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Socket - Chatting</title>
+</head>
+<body>
+	닉네임<input type="text" id="nickname" size="20" /><br/>
+	보내는 메시지<input type="text" id="message" size="50" />
+	<input type="button" id="sendbtn" value="전송" /><br/>
+	받은 메시지<textarea id = "disp" rows="20" cols="80"></textarea>
+</body>
+
+<script>
+	//웹 소켓 객체 생성
+	var webSocket = new WebSocket("ws://192.168.0.112:9000/webfrontendstudy/chat");
+	
+	var nickname = document.getElementById("nickname");
+	var message = document.getElementById("message");
+	var sendbtn = document.getElementById("sendbtn");
+	var disp = document.getElementById("disp");
+	
+	//연결 되었을 때 수행할 내용
+	webSocket.addEventListener("open", function(event){
+		//채팅은 새로운 메시지를 위에 출력
+		disp.value = nickname.value + "님이 입장하셨습니다.";
+	});
+	
+	//메시지가 온 경우
+	webSocket.addEventListener("message", function(event){
+		//채팅은 새로운 메시지를 위에 출력
+		disp.value = event.data + "/n" + disp.value;
+	});
+	
+	//버튼 눌렀을 때 메시지 보내기
+	sendbtn.addEventListener("click", function(event){
+		var m = nickname.value + " : " + message.value + "\n";
+		webSocket.send(m);
+		message.value='';
+	});
+</script>
+</html>
