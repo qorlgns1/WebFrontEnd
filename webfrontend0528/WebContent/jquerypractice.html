@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery 연습</title>
+<!-- jquery 링크 설정 -->
+<script src="js/jquery.js"></script>
+<!--  사용자 스크립트 -->
+<script>
+	$(document).ready(function(){
+		//jQuery를 이용한 스타일 변경
+		$('.title').css('color', 'blue');
+		$('.title').html('글자변경');
+		//자바스크립트를 이용한 스타일 변경
+		document.getElementById("subject")
+		.style.color='red';
+		document.getElementById("subject")
+		.innerHTML="글자변경";
+		
+		//jquery의 이벤트 처리
+		$('#outer').click(function(){
+			$('#outer').css('color','red');
+		});
+		
+		$('#inner').click(function(){
+			$('#inner').css('color','blue');
+			event.stopPropagation();
+		});
+	});
+</script>
+</head>
+<body>
+		<h1 class="title">Hello</h1>
+		<h1 id="subject">Hello</h1>
+		
+		<br/>
+		<br/>
+		<br/>
+		
+		<div id="outer">외부
+		<p id="inner">내부</p>
+		</div>
+</body>
+</html>

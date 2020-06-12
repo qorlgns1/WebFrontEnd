@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>날씨 가져오기</title>
+<!-- viewport 설정 -->
+<!-- 너비는 디바이스의 너비로 확대 축소는 안되도록 -->
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<!-- jquery 링크 설정 -->
+<script src="js/jquery.js"></script>
+
+<!-- 스타일시트 파일 경로 설정 -->
+<link rel="stylesheet" href="css/weather.css">
+<!-- 사용자 정의 스크립트 사용을 위한 경로 -->
+<script src="js/weather.js"></script>
+</head>
+<body>
+	<div id="weather_info">
+		<!-- 도시이름 출력 영역 -->
+		<h1 class="city"></h1>
+
+		<!-- 날씨와 아이콘 출력 영역 -->
+		<section>
+			<p class="w_id"></p>
+			<figure class="icon"></figure>
+			<aside>
+				<p class="temp_max">max</p>
+				<p class="temp_min">min</p>
+			</aside>
+
+		</section>
+		<!-- 로딩 이미지 출력 -->
+		<img  class="load_img" src="images/loading.gif" width="50px" />
+	</div>
+</body>
+</html>
